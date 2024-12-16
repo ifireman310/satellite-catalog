@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    username: satellite_catalog
+    password: satellite_catalog
+    url: jdbc:mysql://localhost:3306/satellite_catalog
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: never
