@@ -1,0 +1,450 @@
+{
+	"info": {
+		"_postman_id": "074394ec-8560-4b6b-8630-20126946e3e6",
+		"name": "Satellite Catalog Final Project",
+		"description": "Postman Collection for the Satellite Catalog Final Project by Ian Fireman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39892020"
+	},
+	"item": [
+		{
+			"name": "Get All Satellites",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Satellite by Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite\\13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Satellite",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"satellite_owner_id\": 6,\r\n    \"noradId\": \"54026\",\r\n    \"tleLine1\": \"1 54026U 22128A   24350.57775803  .00000087  00000+0  00000+0 0  9991\",\r\n    \"tleLine2\": \"2 54026   0.0107 325.3734 0002131 299.4585 254.8702  1.00271371  8236\",\r\n    \"mass\": 100,\r\n    \"sphericalRadius\": 5,\r\n    \"moveable\": false,\r\n    \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite_owner\\6\\satellite\\16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite_owner",
+						"6",
+						"satellite",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Satellite",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"satellite_owner_id\": 2,\r\n    \"noradId\": \"50456\",\r\n    \"tleLine1\": \"1 54026U 22128A   24350.57775803  .00000087  00000+0  00000+0 0  9991\",\r\n    \"tleLine2\": \"2 54026   0.0107 325.3734 0002131 299.4585 254.8702  1.00271371  8236\",\r\n    \"mass\": 2000,\r\n    \"sphericalRadius\": 5,\r\n    \"moveable\": true,\r\n    \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite_owner\\2\\satellite",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite_owner",
+						"2",
+						"satellite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Satellite Owners",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite_owner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite_owner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Satellite Owner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"country\": \"USA\",\r\n    \"company\": \"Northrop Grumman\",\r\n    \"address\": \"1 Space Park Drive, Redondo Beach, California, 90278\",\r\n    \"email\": \"Norty.McGrummy@ngc.com\",\r\n    \"phone\": \"310-812-4321\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite_owner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite_owner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Satellite Owner",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"country\": \"USA\",\r\n    \"company\": \"Northrop Grumman\",\r\n    \"address\": \"1 Space Park Drive, Redondo Beach, California, 90278\",\r\n    \"email\": \"Norty.McGrummy@ngc.com\",\r\n    \"phone\": \"111-111-2222\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite_owner\\6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite_owner",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Satellites From Owner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite_owner\\6\\satellite",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite_owner",
+						"6",
+						"satellite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Missions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\mission",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"mission"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Mission",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Communication\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\mission",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"mission"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Satellite to Mission",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite\\17\\add_mission\\3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite",
+						"17",
+						"add_mission",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Satellite from Mission",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite\\13\\remove_mission\\1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite",
+						"13",
+						"remove_mission",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Satellites from Mission",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite\\mission\\7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite",
+						"mission",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Satellite",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite\\18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite",
+						"18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Satellite Owner",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\satellite_owner\\6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"satellite_owner",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Mission",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080\\satellite_catalog\\mission\\7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"satellite_catalog",
+						"mission",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

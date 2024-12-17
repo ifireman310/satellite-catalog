@@ -72,8 +72,6 @@ public class SatelliteCatalogService {
 		return result;
 	}
 	
-	
-	//
 	private SatelliteOwner findOrCreateSatelliteOwner(Long satelliteOwnerId) {
 
 		SatelliteOwner satelliteOwner;
@@ -177,6 +175,31 @@ public class SatelliteCatalogService {
 		return new SatelliteData(satelliteDao.save(satellite));
 	}
 
+	// Save a new satellite
+	@Transactional(readOnly = false)
+	public SatelliteData addMissionToSatellite(Long satelliteId, Long MissionId) {
+		
+		Satellite satellite = findSatelliteById(satelliteId);
+		Mission mission = findMissionById(MissionId);
+		satellite.getMissions().add(mission);
+		mission.getSatellites().add(satellite);
+		
+		missionDao.save(mission);
+		
+		return new SatelliteData(satelliteDao.save(satellite));
+	}
+	
+	public SatelliteData removeMissionFromSatellite(Long satelliteId, Long MissionId) {
+		
+		Satellite satellite = findSatelliteById(satelliteId);
+		Mission mission = findMissionById(MissionId);
+		
+		satellite.getMissions().remove(mission);
+		mission.getSatellites().remove(satellite);
+		missionDao.save(mission);
+		
+		return new SatelliteData(satelliteDao.save(satellite));
+	}
 	
 	// Save a new mission
 	public MissionData saveMission(MissionData missionData) {
@@ -195,7 +218,55 @@ public class SatelliteCatalogService {
 		satellite.getMissions().add(mission);
 		mission.getSatellites().add(satellite);
 		
-		return satelliteDao.save(satellite);
+		return satelliteDao.save(satellite);	
+	}
+
+	public List<SatelliteData> retrieveAllSatellitesFromOwner(Long satelliteOwnerId) {
+		SatelliteOwnerData satelliteOwnerData = retrieveSatelliteOwnerById(satelliteOwnerId);
+		List<SatelliteData> result = new LinkedList<>();
 		
+		for (SatelliteData satData : satelliteOwnerData.getSatellites()) {
+			result.add(satData);
+		}
+		return result;
+	}
+
+	@Transactional(readOnly = false)
+	public void deleteSatelliteById(Long satelliteId) {
+		Satellite satellite = findSatelliteById(satelliteId);
+		satelliteDao.delete(satellite);
+	}
+
+	@Transactional(readOnly = false)
+	public void deleteMissionById(Long missionId) {
+		Mission mission = findMissionById(missionId);
+		List<Long> satIds = new LinkedList<>();
+		
+		for (Satellite satellite : mission.getSatellites()) {
+			satIds.add(satellite.getSatelliteId());
+		}
+		
+		for (Long satelliteId : satIds) {
+			removeMissionFromSatellite(satelliteId, missionId);
+		}
+		
+		missionDao.delete(mission);
+	}
+
+	@Transactional(readOnly = false)
+	public void deleteSatelliteOwnerById(Long satelliteOwnerId) {
+		SatelliteOwner satelliteOwner = findSatelliteOwnerById(satelliteOwnerId);
+		satelliteOwnerDao.delete(satelliteOwner);
+	}
+	
+	public List<SatelliteData> retrieveSatellitesForMission(Long missionId) {
+		Mission mission = findMissionById(missionId);
+		List<SatelliteData> result = new LinkedList<>();
+		
+		for (Satellite satellite : mission.getSatellites()) {
+			SatelliteData sd = new SatelliteData(satellite);
+			result.add(sd);
+		}
+		return result;
 	}
 }

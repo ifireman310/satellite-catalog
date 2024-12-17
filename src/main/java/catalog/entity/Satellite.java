@@ -35,7 +35,7 @@ public class Satellite {
 	// This implements a many to one relationship between satellites and satelliteOwner and , meaning one owner can have many satellites
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "satellite_owner_id")
 	private SatelliteOwner satelliteOwner;
 	

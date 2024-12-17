@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SatelliteOwnerData {
 
-	private long satelliteOwnerId;
+	private Long satelliteOwnerId;
 	private String company;
 	private String address;
 	private String email;
@@ -38,6 +38,7 @@ public class SatelliteOwnerData {
 	@NoArgsConstructor
 	public static class SatelliteData {
 		private Long satelliteId;
+		private Long satelliteOwnerId;
 		private String noradId;
 		private String tleLine1;
 		private String tleLine2;
@@ -49,6 +50,7 @@ public class SatelliteOwnerData {
 		
 		public SatelliteData(Satellite satellite) {
 			satelliteId = satellite.getSatelliteId();
+			this.satelliteOwnerId = satellite.getSatelliteOwner().getSatelliteOwnerId(); 
 			noradId = satellite.getNoradId();
 			tleLine1 = satellite.getTleLine1();
 			tleLine2 = satellite.getTleLine2();
